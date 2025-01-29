@@ -80,5 +80,7 @@ test:
 production:
   <<: *default
   database: survey_app_production
-  username: ENV["SURVEY_APP_DATABASE_USERNAME"]
-  password: <%= ENV["SURVEY_APP_DATABASE_PASSWORD"] %> || password
+  username: <%= ENV["SURVEY_APP_DATABASE_USERNAME"] %>
+  password: <%= ENV["SURVEY_APP_DATABASE_PASSWORD"] %>
+  host: localhost
+  port: 5432
