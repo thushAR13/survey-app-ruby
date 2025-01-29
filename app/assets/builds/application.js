@@ -30279,14 +30279,30 @@
     const shareUrl = `${window.location.origin}/surveys/public/${survey.public_link}`;
     const shareDescription = "Take this survey!";
     const shareTitle = "Take this survey now!";
-    return /* @__PURE__ */ import_react10.default.createElement("div", { className: "container mt-5" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "card shadow p-4" }, /* @__PURE__ */ import_react10.default.createElement("h1", { className: "text-center mb-4" }, survey.title), /* @__PURE__ */ import_react10.default.createElement("p", { className: "text-muted" }, survey.description), /* @__PURE__ */ import_react10.default.createElement("div", { className: "mt-3 d-flex align-items-center" }, /* @__PURE__ */ import_react10.default.createElement(
+    return /* @__PURE__ */ import_react10.default.createElement("div", { className: "container mt-5" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "card shadow p-4" }, /* @__PURE__ */ import_react10.default.createElement("h1", { className: "text-center mb-4" }, survey.title), /* @__PURE__ */ import_react10.default.createElement("p", { className: "text-muted" }, survey.description), /* @__PURE__ */ import_react10.default.createElement("div", { className: "mb-3" }, /* @__PURE__ */ import_react10.default.createElement("label", { className: "form-label fw-bold" }, "Link to share:"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-group", style: { maxWidth: "600px" } }, /* @__PURE__ */ import_react10.default.createElement(
+      "input",
+      {
+        type: "text",
+        className: "form-control",
+        readOnly: true,
+        value: shareUrl
+      }
+    ), /* @__PURE__ */ import_react10.default.createElement(
+      "button",
+      {
+        type: "button",
+        className: "btn btn-outline-secondary",
+        onClick: () => navigator.clipboard.writeText(shareUrl)
+      },
+      "Copy"
+    ))), /* @__PURE__ */ import_react10.default.createElement("div", { className: "mt-3 d-flex align-items-center" }, /* @__PURE__ */ import_react10.default.createElement(
       "button",
       {
         onClick: () => window.open(`mailto:?subject=Take this survey&body=${shareUrl}`),
         className: "btn btn-outline-secondary me-2"
       },
       "Share via Email"
-    ), /* @__PURE__ */ import_react10.default.createElement(FacebookShareButton$1, { url: shareUrl, quote: `${shareTitle} ${shareUrl}`, hashtag: "#Survey" }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "btn btn-outline-info me-2" }, "Facebook")), /* @__PURE__ */ import_react10.default.createElement(TwitterShareButton$1, { url: shareUrl, title: shareTitle, hashtags: ["Survey", "Feedback"] }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "btn btn-outline-primary me-2" }, "Twitter")), /* @__PURE__ */ import_react10.default.createElement(LinkedinShareButton$1, { url: shareUrl, title: shareTitle, summary: shareDescription, source: shareUrl }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "btn btn-outline-dark me-2" }, "LinkedIn")), /* @__PURE__ */ import_react10.default.createElement(WhatsappShareButton$1, { url: shareUrl, title: `${shareTitle} ${shareUrl}` }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "btn btn-outline-success" }, "WhatsApp"))), ";", /* @__PURE__ */ import_react10.default.createElement(
+    ), /* @__PURE__ */ import_react10.default.createElement(FacebookShareButton$1, { url: shareUrl, quote: `${shareTitle} ${shareUrl}`, hashtag: "#Survey" }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "btn btn-outline-info me-2" }, "Facebook")), /* @__PURE__ */ import_react10.default.createElement(TwitterShareButton$1, { url: shareUrl, title: shareTitle, hashtags: ["Survey", "Feedback"] }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "btn btn-outline-primary me-2" }, "Twitter")), /* @__PURE__ */ import_react10.default.createElement(LinkedinShareButton$1, { url: shareUrl, title: shareTitle, summary: shareDescription, source: shareUrl }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "btn btn-outline-dark me-2" }, "LinkedIn")), /* @__PURE__ */ import_react10.default.createElement(WhatsappShareButton$1, { url: shareUrl, title: `${shareTitle} ${shareUrl}` }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "btn btn-outline-success" }, "WhatsApp"))), /* @__PURE__ */ import_react10.default.createElement(
       QuestionTable_default,
       {
         questions: survey.questions,
