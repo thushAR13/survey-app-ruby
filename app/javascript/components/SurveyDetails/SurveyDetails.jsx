@@ -69,7 +69,27 @@ const SurveyDetails = ({ surveyId, apiBaseUrl }) => {
       <div className="card shadow p-4">
         <h1 className="text-center mb-4">{survey.title}</h1>
         <p className="text-muted">{survey.description}</p>
-
+  
+        {/* Public Link above the share buttons */}
+        <div className="mb-3">
+          <label className="form-label fw-bold">Link to share:</label>
+          <div className="input-group" style={{ maxWidth: "600px" }}>
+            <input
+              type="text"
+              className="form-control"
+              readOnly
+              value={shareUrl}
+            />
+            <button
+              type="button"
+              className="btn btn-outline-secondary"
+              onClick={() => navigator.clipboard.writeText(shareUrl)}
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+  
         {/* Share Survey Section */}
         <div className="mt-3 d-flex align-items-center">
           {/* Email Share */}
@@ -79,27 +99,27 @@ const SurveyDetails = ({ surveyId, apiBaseUrl }) => {
           >
             Share via Email
           </button>
-
+  
           {/* Facebook Share */}
           <FacebookShareButton url={shareUrl} quote={`${shareTitle} ${shareUrl}`} hashtag="#Survey">
             <button className="btn btn-outline-info me-2">Facebook</button>
           </FacebookShareButton>
-
+  
           {/* Twitter Share */}
           <TwitterShareButton url={shareUrl} title={shareTitle} hashtags={["Survey", "Feedback"]}>
             <button className="btn btn-outline-primary me-2">Twitter</button>
           </TwitterShareButton>
-
+  
           {/* LinkedIn Share */}
           <LinkedinShareButton url={shareUrl} title={shareTitle} summary={shareDescription} source={shareUrl}>
             <button className="btn btn-outline-dark me-2">LinkedIn</button>
           </LinkedinShareButton>
-
+  
           {/* WhatsApp Share */}
           <WhatsappShareButton url={shareUrl} title={`${shareTitle} ${shareUrl}`}>
             <button className="btn btn-outline-success">WhatsApp</button>
           </WhatsappShareButton>
-        </div>;
+        </div>
         {/* Questions Table */}
         <QuestionTable
           questions={survey.questions}
