@@ -1,0 +1,7 @@
+<div
+  id="login-root"
+  data-login-url="<%= login_path %>"
+  data-signup-url="<%= user_registration_path %>"
+  data-verify-otp-url="<%= otp_verifications_path %>"
+></div>
+<%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
